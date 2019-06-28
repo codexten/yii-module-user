@@ -1,13 +1,15 @@
 <?php
 
-
 namespace codexten\yii\modules\user\controllers;
-
 
 use codexten\yii\modules\user\models\AdminUser;
 use codexten\yii\modules\user\models\search\AdminUserSearch;
+use codexten\yii\web\CrudController;
 
-class AdminController extends UserController
+/**
+ * AdminUserController implements the CRUD actions for AdminUser model.
+ */
+class AdminUserController extends CrudController
 {
     public $modelClass = AdminUser::class;
 

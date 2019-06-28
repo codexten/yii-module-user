@@ -4,10 +4,10 @@ namespace codexten\yii\modules\user\models\search;
 
 use codexten\yii\db\SearchModelInterface;
 use codexten\yii\db\SearchModelTrait;
-use codexten\yii\modules\user\models\User;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\data\DataProviderInterface;
+use codexten\yii\modules\user\models\User;
 
 abstract class UserSearch extends Model implements SearchModelInterface
 {
@@ -32,17 +32,21 @@ abstract class UserSearch extends Model implements SearchModelInterface
             'query' => $query,
             'sort' => $this->sort,
         ]);
-        $query->joinWith(['user as user']);
+        $query->joinWith(['roles as roles']);
 
-        $dataProvider->sort->attributes['username'] = [
-            'asc' => ['user.username' => SORT_ASC],
-            'desc' => ['user.username' => SORT_DESC],
-        ];
+        if (!empty($this->roles)) {
+            $query->andWhere(['roles.name' => $this->roles]);
+        }
 
-        $dataProvider->sort->attributes['email'] = [
-            'asc' => ['user.email' => SORT_ASC],
-            'desc' => ['user.email' => SORT_DESC],
-        ];
+//        $dataProvider->sort->attributes['username'] = [
+//            'asc' => ['user.username' => SORT_ASC],
+//            'desc' => ['user.username' => SORT_DESC],
+//        ];
+//
+//        $dataProvider->sort->attributes['email'] = [
+//            'asc' => ['user.email' => SORT_ASC],
+//            'desc' => ['user.email' => SORT_DESC],
+//        ];
 
 //        $dataProvider->sort->attributes['full_name'] = [
 //            'asc' => ['user.email' => SORT_ASC],
