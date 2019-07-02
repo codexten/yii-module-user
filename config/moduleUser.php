@@ -10,6 +10,7 @@ return [
         'user' => [
             'class' => Module::class,
             'controllerNamespace' => 'codexten\yii\modules\user\controllers',
+            'viewPath' => '@moduleUser/views',
         ],
     ],
 ];
