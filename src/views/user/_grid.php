@@ -1,6 +1,8 @@
 <?php
 
-use yii\grid\GridView; ?>
+use yii\grid\GridView;
+
+?>
 
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
