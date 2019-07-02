@@ -11,16 +11,6 @@ class UserController extends CrudController
     public $modelClass = User::class;
 
     /**
-     * {@inheritDoc}
-     */
-    public function actions()
-    {
-        $actions = parent::actions();
-
-        return $actions;
-    }
-
-    /**
      * @return array
      */
     public function getPathMaps(): array
