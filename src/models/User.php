@@ -8,13 +8,6 @@ class User extends \codexten\yii\modules\auth\models\User
 {
     public $user_roles;
 
-    public function rules()
-    {
-        $rules = parent::rules();
-
-        return $rules;
-    }
-
     public function afterSave($insert, $changedAttributes)
     {
         parent::afterSave($insert, $changedAttributes);
