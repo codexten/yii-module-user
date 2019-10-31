@@ -10,7 +10,7 @@ use yii\grid\GridView;
     'columns' => [
         'username',
         'email',
-        'logged_at',
+        'logged_at:datetime',
         [
             'class' => 'yii\grid\ActionColumn',
             'options' => ['style' => 'width: 5%'],
